@@ -1,37 +1,56 @@
-## Welcome to GitHub Pages
+## Welcome to my Gameboard
 
-You can use the [editor on GitHub](https://github.com/tjf952/tjf952.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+In my search to take better notes on my progress through penetration testing, I have decided to use [GitHub Pages] (https://pages.github.com/). So this book will have a collection of commands and methodologies that I have used in the 80+ boxes I have _pwned_ over the past _x_ time. For myself, it will serve as my notebook as I complete multiple pentesting certifications i.e. [VHL] (https://www.virtualhackinglabs.com/), [OSCP] (https://www.offensive-security.com/pwk-oscp/), [OSWP] (https://www.offensive-security.com/wifu-oswp/), etc.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Methodology
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Every pen-tester needs a checklist to run through. After running through many boxes and constantly refining my process of finding and exploiting vulnerabilities, I have simplified my process to the following steps:
 
 ```markdown
-Syntax highlighted code block
+Methodology Checklist
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
+1. Scoping
+  - Define criteria
+  - Test initial connections
+  - Analyze given information
+2. [Reconnaissance] (recon/alpha.md)
+  - Information gathering and discovery
+  - Device and OS enumeration
+  - Port scanning
+  - Network sniffing
+3. [Enumeration] (enumeration/bravo.md)
+  - Advanced port scanning
+  - Common vulnerability scripts
+  - Common enumeration scripts
+  - Manual enumeration if possible
+4. Vulnerability Assessment
+  - Vulnerability detection and analysis
+  - Vulnerability locating i.e. exploitdb, github, searchsploit
+  - Data validation
+  - Configuration management
+5. Exploitation
+  - OS specific: [Linux] (linux/charlie.md) or [Windows] (windows/delta.md)
+  - Vulnerability testing and verification
+  - False positives and false negatives elimination
+6. Analysis
+  - Shell or root access
+  - Access and persistence
+  - Consolidate findings
+  - [Report] (writeups/echo.md) completion
 
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Other Stuff
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tjf952/tjf952.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+This will be a work in progress so it will be updated every so often. Here is a list of interesting sites that have always helped me as well:
+- [GTFOBins] (https://gtfobins.github.io/)
+- [CyberChef] (https://gchq.github.io/CyberChef/)
+- [Hash Analyzer] (https://www.tunnelsup.com/hash-analyzer/)
+- [B0F for OSCP] (http://strongcourage.github.io/2020/04/19/bof.html)
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Having something to say? Noticed a devastingly dumb mistake by yours truly and want to help me out? Message me on Discord [JoGo952#9149] (https://discord.com/) and I'll do my best to get back to you.
+
+You can check out my github [here] (https://github.com/tjf952)... though it's not that interesting yet...
