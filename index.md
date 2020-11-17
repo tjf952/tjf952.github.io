@@ -21,7 +21,7 @@ Every pen-tester needs a checklist to run through. After running through many bo
   - Device and OS enumeration
   - Port scanning
   - Network sniffing
-3. [Enumeration](enumeration/bravo.md)
+3. [Enumeration](enum/bravo.md)
   - Advanced port scanning
   - Common vulnerability scripts
   - Common enumeration scripts
@@ -32,7 +32,7 @@ Every pen-tester needs a checklist to run through. After running through many bo
   - Data validation
   - Configuration management
 5. Exploitation
-  - OS specific: [Linux](linux/charlie.md) or [Windows](windows/delta.md)
+  - OS specific: [Linux](vuln/linux/charlie.md) or [Windows](vuln/windows/delta.md)
   - Vulnerability testing and verification
   - False positives and false negatives elimination
 6. Analysis
