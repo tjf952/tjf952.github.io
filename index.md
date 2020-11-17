@@ -10,8 +10,7 @@ In my search to take better notes on my progress through penetration testing, I 
 
 Every pen-tester needs a checklist to run through. After running through many boxes and constantly refining my process of finding and exploiting vulnerabilities, I have simplified my process to the following steps:
 
-```markdown
-Methodology Checklist
+#### Methodology Checklist
 
 1. Scoping
   - Define criteria
@@ -41,7 +40,6 @@ Methodology Checklist
   - Access and persistence
   - Consolidate findings
   - [Report](writeups/echo.md) completion
-```
 
 ### Other Stuff
 
