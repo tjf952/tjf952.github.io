@@ -51,6 +51,6 @@ This will be a work in progress so it will be updated every so often. Here is a 
 
 ### Support or Contact
 
-Having something to say? Noticed a devastingly dumb mistake by yours truly and want to help me out? Message me on Discord [JoGo952#9149](https://discord.com/) and I'll do my best to get back to you.
+Have something to say? Noticed a devastingly dumb mistake by yours truly and want to help me out? Message me on Discord [JoGo952#9149](https://discord.com/) and I'll do my best to get back to you.
 
 You can check out my github [here](https://github.com/tjf952)... though it's not that interesting yet...
