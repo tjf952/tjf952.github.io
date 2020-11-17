@@ -32,7 +32,7 @@ Every pen-tester needs a checklist to run through. After running through many bo
   - Data validation
   - Configuration management
 5. Exploitation
-  - OS specific: [Linux](vuln/linux/charlie.md) or [Windows](vuln/windows/delta.md)
+  - OS specific: [Linux](vuln/charlie.md) or [Windows](vuln/delta.md)
   - Vulnerability testing and verification
   - False positives and false negatives elimination
 6. Analysis
