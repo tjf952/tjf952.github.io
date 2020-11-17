@@ -1,4 +1,8 @@
-<img align="left" src="images/queen-small.png"> ## Welcome to my Gameboard
+<p align="center">
+  <img align="left" src="images/queen-small.png"> 
+</p>
+
+## Welcome to my Gameboard
 
 In my search to take better notes on my progress through penetration testing, I have decided to use [GitHub Pages](https://pages.github.com/). So this book will have a collection of commands and methodologies that I have used in the 80+ boxes I have _pwned_ over the past _x_ time. For myself, it will serve as my notebook as I complete multiple pentesting certifications i.e. [VHL](https://www.virtualhackinglabs.com/), [OSCP](https://www.offensive-security.com/pwk-oscp/), [OSWP](https://www.offensive-security.com/wifu-oswp/), etc.
 
