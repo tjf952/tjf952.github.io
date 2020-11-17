@@ -1,5 +1,5 @@
 <p align="center">
-  <img align="left" src="images/queen-small.png"> 
+  <img src="images/queen-small.png"> 
 </p>
 
 ## Welcome to my Gameboard
