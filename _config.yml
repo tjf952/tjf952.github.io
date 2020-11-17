@@ -1,6 +1,7 @@
 theme: jekyll-theme-architect
 title: Gameboard z3r0
 description: "Let's all have fun and play together!"
+timezone: America/New_York
 highlighter: rouge
 tipue_search:
   include:
