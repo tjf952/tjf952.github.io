@@ -12,34 +12,34 @@ Every pen-tester needs a checklist to run through. After running through many bo
 
 #### Methodology Checklist
 
-1. Scoping
-  - Define criteria
-  - Test initial connections
-  - Analyze given information
-2. [Reconnaissance](recon/alpha.md)
-  - Information gathering and discovery
-  - Device and OS enumeration
-  - Port scanning
-  - Network sniffing
-3. [Enumeration](enum/bravo.md)
-  - Advanced port scanning
-  - Common vulnerability scripts
-  - Common enumeration scripts
-  - Manual enumeration if possible
-4. Vulnerability Assessment
-  - Vulnerability detection and analysis
-  - Vulnerability locating i.e. exploitdb, github, searchsploit
-  - Data validation
-  - Configuration management
-5. Exploitation
-  - OS specific: [Linux](vuln/charlie.md) or [Windows](vuln/delta.md)
-  - Vulnerability testing and verification
-  - False positives and false negatives elimination
-6. Analysis
-  - Shell or root access
-  - Access and persistence
-  - Consolidate findings
-  - [Report](writeups/echo.md) completion
+> 1. Scoping
+>   - Define criteria
+>   - Test initial connections
+>   - Analyze given information
+> 2. [Reconnaissance](recon/alpha.md)
+>   - Information gathering and discovery
+>   - Device and OS enumeration
+>   - Port scanning
+>   - Network sniffing
+> 3. [Enumeration](enum/bravo.md)
+>   - Advanced port scanning
+>   - Common vulnerability scripts
+>   - Common enumeration scripts
+>   - Manual enumeration if possible
+> 4. Vulnerability Assessment
+>   - Vulnerability detection and analysis
+>   - Vulnerability locating i.e. exploitdb, github, searchsploit
+>   - Data validation
+>   - Configuration management
+> 5. Exploitation
+>   - OS specific: [Linux](vuln/charlie.md) or [Windows](vuln/delta.md)
+>   - Vulnerability testing and verification
+>   - False positives and false negatives elimination
+> 6. Analysis
+>   - Shell or root access
+>   - Access and persistence
+>   - Consolidate findings
+>   - [Report](writeups/echo.md) completion
 
 ### Other Stuff
 
@@ -51,6 +51,8 @@ This will be a work in progress so it will be updated every so often. Here is a 
 
 ### Support or Contact
 
-Have something to say? Noticed a devastingly dumb mistake by yours truly and want to help me out? Message me on Discord [JoGo952#9149](https://discord.com/) and I'll do my best to get back to you.
+Have something to say? Noticed a devastingly dumb mistake by yours truly and want to help me out? Message me on Discord @[JoGo952#9149](https://discord.com/) and I'll do my best to get back to you.
 
 You can check out my github [here](https://github.com/tjf952)... though it's not that interesting yet...
+
+**November 2020** Disboard&copy;
