@@ -1,24 +1,25 @@
-# Table of Contents
-
 * [About](about.md)
 * [Resume](resume.md)
 
 ## Recon
 
-* [Alpha](recon/alpha.md)
+* [Scanning](recon/scan.md)
 
 ## Enumeration
 
-* [Bravo](enumeration/bravo.md)
+* [Web](enum/web.md)
+* [Ports](enum/ports.md)
 
-## Linux
+## Vulnerabilities
 
-* [Charlie](linux/charlie.md)
+* [Vulnerabilities](vuln/vuln.md)
+* [Passwords](vuln/password.md)
 
-## Windows
+## Exploitation
 
-* [Delta](windows/delta.md)
+* [Linux](exploit/linux.md)
+* [Windows](exploit/windows.md)
 
 ## Writeups
 
-* [Echo](writeups/echo.md)
+* [Reports](writeups/echo.md)
