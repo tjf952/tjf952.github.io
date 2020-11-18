@@ -1,0 +1,21 @@
+docs_list_title: Navigation
+docs:
+
+- title: A
+  subfolderitems:
+    - page: B
+      url: /C.html
+    - page: D
+      url: /E.html
+- title: A
+  subfolderitems:
+    - page: B
+      url: /C.html
+    - page: D
+      url: /E.html
+- title: A
+  subfolderitems:
+    - page: B
+      url: /C.html
+    - page: D
+      url: /E.html
