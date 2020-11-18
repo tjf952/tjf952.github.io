@@ -55,4 +55,4 @@ Have something to say? Noticed a devastingly dumb mistake by yours truly and wan
 
 You can check out my github [here](https://github.com/tjf952)... though it's not that interesting yet...
 
-**November 2020** Disboard&copy;
+**November 2020** Disboard &copy;
