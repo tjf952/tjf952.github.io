@@ -1,32 +1,25 @@
-<div style="text-align:left;">
-  <h1>&#9776; Navigation</h1>
-  <ul>
-    <li><a href="{{site.baseurl}}/about.md">About</a></li>
-    <li><a href="{{site.baseurl}}/resume.md">Resume</a></li>
-  </ul>
-    
-  <h3>Recon</h3>
-  <ul>
-    <li><a href="{{site.baseurl}}/recon/alpha.md">Alpha</a></li>
-  </ul>
-  
-  <h3>Enumeration</h3>
-  <ul>
-    <li><a href="{{site.baseurl}}/enum/bravo.md">Bravo</a></li>
-  </ul>
-  
-  <h3>Linux</h3>
-  <ul>
-    <li><a href="{{site.baseurl}}/vuln/charlie.md">Charlie</a></li>
-  </ul>
-  
-  <h3>Windows</h3>
-  <ul>
-    <li><a href="{{site.baseurl}}/vuln/delta.md">Delta</a></li>
-  </ul>
-  
-  <h3>Writeups</h3>
-  <ul>
-    <li><a href="{{site.baseurl}}/writeups/echo.md">Echo</a></li>
-  </ul>
-</div>
+* [About](about.md)
+* [Resume](resume.md)
+
+## Recon
+
+* [Scanning](recon/scan.md)
+
+## Enumeration
+
+* [Web](enum/web.md)
+* [Ports](enum/ports.md)
+
+## Vulnerabilities
+
+* [Vulnerabilities](vuln/vuln.md)
+* [Passwords](vuln/password.md)
+
+## Exploitation
+
+* [Linux](exploit/linux.md)
+* [Windows](exploit/windows.md)
+
+## Writeups
+
+* [Reports](writeups/echo.md)
