@@ -1,6 +1,6 @@
 # Port Enumeration
 
-## Samba (SMB)
+## === Samba (SMB) ===
 
 ```bash
 # smbmap
@@ -12,7 +12,7 @@ smbclient -L 10.10.10.1 -N
 smbclient //10.10.10.1/directory -U guest
 ```
 
-## MySQL
+## === MySQL ===
 
 ```bash
 # mysql

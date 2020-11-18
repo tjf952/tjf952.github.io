@@ -1,6 +1,6 @@
 # Web Enumeration
 
-## Directory Searching
+## === Directory Searching ===
 
 ```bash
 # dirsearch

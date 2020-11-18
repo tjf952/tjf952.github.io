@@ -1,6 +1,6 @@
 # Scanning the Target
 
-## Nmap
+## === Nmap ===
 
 ### Port Scanning
 ```bash
@@ -28,7 +28,7 @@ nmap -sn 10.10.10.1-253
 nmap -sn 10.10.10.*
 ```
 
-## Ping Sweep
+## === Ping Sweep ===
 
 ```bash
 # linux
@@ -37,7 +37,7 @@ for i in {1..254}; do (ping -c 10.10.10.$i | grep "bytes from" &); done
 for /L %i in {1,1,255} do @ping -n 1 -w 200 10.10.10.%i > nul && echo 192.168.1.%i is up.
 ```
 
-## Netcat (NC)
+## === Netcat (NC) ===
 
 ```bash
 nc -nvC $ip $port

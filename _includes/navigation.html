@@ -1,0 +1,13 @@
+<h1>&#9776; {{ site.data.navigation.docs_list_title }}</h1>
+{% for item in site.data.navigation.docs %}
+  <h2>{{ item.title }}</h2>
+  <ul>
+     {% for entry in item.subfolderitems %}
+        <li>
+          <a href="{{ entry.url }}" {% if entry.url == page.url %}style="color: gray; cursor: default;"{% endif %}>
+            {{ entry.page }}
+          </a>
+        </li>
+     {% endfor %}
+  </ul>
+{% endfor %}

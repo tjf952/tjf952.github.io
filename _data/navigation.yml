@@ -4,7 +4,7 @@ docs:
   - title: Home
     subfolderitems:
       - page: Home
-        url: /index.html
+        url: /
       - page: About
         url: /about.html
       - page: Resume
@@ -34,4 +34,4 @@ docs:
   - title: Writeups
     subfolderitems:
       - page: Reports
-        url: /writeups/echo.html
+        url: /writeups/reports.html

