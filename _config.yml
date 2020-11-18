@@ -1,10 +1,12 @@
----
-
-theme: jekyll-theme-architect
 title: Gameboard Z3r0
 description: "Let's all have fun and play together!"
+github_username: tjf952
+
+theme: jekyll-theme-architect
 timezone: America/New_York
 highlighter: rouge
+show_downloads: true
+
 tipue_search:
   include:
     pages: true
