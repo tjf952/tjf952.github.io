@@ -59,8 +59,7 @@
             <ul>
                {% for entry in item.subfolderitems %}
                   <li class="{% if entry.url == page.url %}active{% endif %}">
-                    <a>Page URL: {{ page.url }}</a>
-                    <a href="{{ entry.url }}">Entry URL: {{ entry.url }}</a>
+                    <a href="{{ entry.url }}">Entry URL: {{ entry.page }}</a>
                   </li>
                {% endfor %}
             </ul>
