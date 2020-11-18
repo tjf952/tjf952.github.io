@@ -1,21 +1,35 @@
 docs_list_title: Navigation
-docs:
 
-- title: A
-  subfolderitems:
-    - page: B
-      url: /C.html
-    - page: D
-      url: /E.html
-- title: A
-  subfolderitems:
-    - page: B
-      url: /C.html
-    - page: D
-      url: /E.html
-- title: A
-  subfolderitems:
-    - page: B
-      url: /C.html
-    - page: D
-      url: /E.html
+docs:
+  - title: Home
+    subfolderitems:
+      - page: About
+        url: /about.html
+      - page: Resume
+        url: /resume.html
+  - title: Recon
+    subfolderitems:
+      - page: Scanning
+        url: /recon/scan.html
+  - title: Enumeration
+    subfolderitems:
+      - page: Ports
+        url: /enum/ports.html
+      - page: Web
+        url: /enum/web.html
+  - title: Vulnerability Assessment
+    subfolderitems:
+      - page: Vulnerabilities
+        url: /vuln/vuln.html
+      - page: Passwords
+        url: /vuln/password.html
+  - title: Exploitation
+    subfolderitems:
+      - page: Linux
+        url: /exploit/linux.html
+      - page: Windows
+        url: /exploit/windows.html
+  - title: Writeups
+    subfolderitems:
+      - page: Reports
+        url: /writeups/echo.html
