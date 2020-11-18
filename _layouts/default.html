@@ -53,12 +53,15 @@
             <p class="repo-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</p>
           {% endif %}
           
-          <h2>&#9776; {{ site.data.navigation.docs_list_title }}</h2>
-          <ul>
-             {% for item in site.data.navigation.docs %}
-                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-             {% endfor %}
-          </ul>
+          <h1>&#9776; {{ site.data.navigation.docs_list_title }}</h1>
+          {% for item in site.data.navigation.docs %}
+            <h2>{{ item.title }}</h2>
+            <ul>
+               {% for entry in item.subfolderitems %}
+                  <li><a href="{{ entry.url }}">{{ item.page }}</a></li>
+               {% endfor %}
+            </ul>
+          {% endfor %}
           
         </aside>
       </div>
