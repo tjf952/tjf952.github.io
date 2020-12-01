@@ -20,3 +20,7 @@ mysql -h 10.10.10.1 -u username -p password
 # sqsh
 sqsh -S 10.10.10.1 -U username -P "password"
 ```
+
+<p align="center">
+  <img src="/assets/images/construction.jpg"> 
+</p>

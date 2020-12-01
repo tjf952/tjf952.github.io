@@ -13,3 +13,7 @@ id
 ```bash
 hashcat -m $type -a 0 hashes.txt wordlist.txt -O --force
 ```
+
+<p align="center">
+  <img src="/assets/images/construction.jpg"> 
+</p>
