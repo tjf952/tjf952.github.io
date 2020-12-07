@@ -16,30 +16,30 @@ Every pen-tester needs a checklist to run through. After running through many bo
 >   - Define criteria
 >   - Test initial connections
 >   - Analyze given information
-> 2. [Reconnaissance](recon/alpha.md)
+> 2. Reconnaissance
 >   - Information gathering and discovery
 >   - Device and OS enumeration
->   - Port scanning
->   - Network sniffing
-> 3. [Enumeration](enum/bravo.md)
->   - Advanced port scanning
+>   - [Port scanning](recon/scan.md)
+>   - [Network sniffing](recon/sniff.md)
+> 3. Enumeration
+>   - [Advanced port scanning](enum/ports.md)
 >   - Common vulnerability scripts
 >   - Common enumeration scripts
->   - Manual enumeration if possible
+>   - [Web enumeration](enum/web.md)
 > 4. Vulnerability Assessment
->   - Vulnerability detection and analysis
+>   - [Vulnerability detection and analysis](vuln/vuln.md)
 >   - Vulnerability locating i.e. exploitdb, github, searchsploit
 >   - Data validation
->   - Configuration management
+>   - [Password exploitation](vuln/password.md)
 > 5. Exploitation
->   - OS specific: [Linux](vuln/charlie.md) or [Windows](vuln/delta.md)
+>   - OS specific: [Linux](exploit/linux.md) or [Windows](exploit/windows.md)
 >   - Vulnerability testing and verification
 >   - False positives and false negatives elimination
 > 6. Analysis
 >   - Shell or root access
 >   - Access and persistence
 >   - Consolidate findings
->   - [Report](writeups/echo.md) completion
+>   - [Report](writeups/templatewriteup.md) completion
 
 ### Other Stuff
 

@@ -8,7 +8,7 @@ docs:
       - page: About
         url: /about.html
       - page: Resume
-        url: /resume.html
+        url: /resume.pdf
   - title: Recon
     subfolderitems:
       - page: Scanning
