@@ -1,10 +1,10 @@
-# PicoCTF 2018
+# CTF TITLE
 
-Two-week long competition in Sept/October 2018
+CTF description
 
-Had a fun little game environment for the challenges as well as text based
+Summary on participation
 
-![](writeupfiles/screenshot_categories.png)
+![](files/ctfpicture.png)
 
 ## Overview
 
@@ -96,5 +96,7 @@ ABC{flag}
 ## File Type References
 
 File Reference: [Sample File](files/file.zip)
+
 Image Reference: ![](files/picture.jpg)
+
 Image Reference 2: [Image 2](files/picture.png)
