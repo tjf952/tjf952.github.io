@@ -9,13 +9,13 @@ Summary on participation
 ## Overview
 
 
-Title                                                                      | Category         | Points | Flag
--------------------------------------------------------------------------- | ---------------- | ------ | ------------------------------
-[Question 1                  ](#category-problem-1)                        | General          | 50     | `ABC{flag}`
-[Question 2                  ](#category-problem-2)                        | General          | 50     | `ABC{flag}`
-[Question 3                  ](#category-problem-3)                        | General          | 50     | `ABC{flag}`
-[Question 4                  ](#category-problem-4)                        | General          | 50     | `ABC{flag}`
-[Question 5                  ](#category-problem-5)                        | General          | 50     | `ABC{flag}`
+Title | Category | Points | Flag
+------|----------|--------|-----
+[Question 1 ](#category-problem-1) | General | 50 | `ABC{flag}`
+[Question 2 ](#category-problem-2) | General | 50 | `ABC{flag}`
+[Question 3 ](#category-problem-3) | General | 50 | `ABC{flag}`
+[Question 4 ](#category-problem-4) | General | 50 | `ABC{flag}`
+[Question 5 ](#category-problem-5) | General | 50 | `ABC{flag}`
 
 
 ## Category: Problem 1
