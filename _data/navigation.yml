@@ -33,5 +33,5 @@ docs:
         url: /exploit/windows.html
   - title: Writeups
     subfolderitems:
-      - page: Reports
-        url: /writeups/reports.html
+      - page: PicoCTF 2019-20
+        url: /writeups/picoctf2020.html
