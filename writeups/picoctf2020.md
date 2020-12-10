@@ -560,10 +560,10 @@ Instead of deciphering it by hand which is definitely easy and possible, you can
 Although you don't need to completely understand this script to do the problem, the explanation is as follows: First, the `re` library is imported so that searching (findall function) can be done on regex to get specific phrases back - that is the index of the character in the password along with the character at that index. Second, change the returned phrases into simple tuples that can be sorted based on index. Lastly, join the characters of the sorted list back into an answer.
 
 *Note: The pattern used in the re.findall() function is ___\d+\)\s+==\s+\'.___ which can be really confusing at first glance. Look at the following to understand.*
-> \d+ looks for a digit that is at least one length, this is the index
-> \s+ looks for a sequence of spaces that is at least one length
-> == looks for the literal string '=='
-> . looks for any character, that is the character in the password
+> - \d+ looks for a digit that is at least one length, this is the index
+> - \s+ looks for a sequence of spaces that is at least one length
+> - == looks for the literal string '=='
+> - . looks for any character, that is the character in the password
 
 **Flag**
 ```
