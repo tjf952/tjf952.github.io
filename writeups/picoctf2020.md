@@ -1,11 +1,10 @@
-<p align="center"> ![](picoctf/picoctf.png) </p>
 # PicoCTF - PicoGym Challenges
 
 PicoCTF is a free computer security game with original educational content built on a capture-the-flag framework created by security and privacy experts at Carnegie Mellon University. The competition has participants reverse engineer, break, hack, decrypt, and think creatively and critically to solve the challenges and capture the flags.
 
 The following are questions that can be found on the new picoGym challenges page. They include solutions for the picoCTF 2019 competition and picoCTF 2020 mini competition.
 
-![](files/ctfpicture.png)
+![](picoctf/picoctf.png)
 
 ## Overview
 
@@ -79,7 +78,7 @@ The numbers... what do they mean?
 
 **Solution**
 
-![](files/the_numbers.png)
+![](picoctf/the_numbers.png)
 
 String of numbers > 16 9 3 15 3 20 6 { 20 8 5 14 21 13 2 5 18 19 13 1 19 15 14 }
 The numbers correspond with the order of the alphabet i.e. 1=A, 2=B, etc.
