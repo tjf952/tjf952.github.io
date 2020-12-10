@@ -20,10 +20,13 @@ Title | Category | Points | Flag
 [What's a Net Cat? ](#general-skills-whats-a-net-cat) | General Skills | 100 | `picoCTF{nEtCat_Mast3ry_d0c64587}`
 [The Numbers ](#cryptography-the-numbers) | Cryptography | 50 | `picoCTF{THENUMBERSMASON}`
 [Caesar ](#cryptography-caesar) | Cryptography | 100 | `picoCTF{crossingtherubiconvfhsjkou}`
+[13 ](#cryptography-13) | Cryptography | 100 | `picoCTF{not_too_bad_of_a_problem}`
 [Insp3ct0r ](#web-exploitation-insp3ct0r) | Web Exploitation | 50 | `picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}`
 [Dont Use Client Side ](#web-exploitation-dont-use-client-side) | Web Exploitation | 100 | `picoCTF{no_clients_plz_7723ce}`
 [Where are the Robots ](#web-exploitation-where-are-the-robots) | Web Exploitation | 100 | `picoCTF{ca1cu1at1ng_Mach1n3s_8028f}`
+[Logon ](#web-exploitation-logon) | Web Exploitation | 100 | `picoCTF{th3_c0nsp1r4cy_l1v3s_d1c24fef}`
 [Vault Door Training ](#reverse-engineering-vault-door-training) | Reverse Engineering | 50 | `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`
+[Vault Door 1 ](#reverse-engineering-vault-door-1) | Reverse Engineering | 100 | `picoCTF{d35cr4mbl3_tH3_cH4r4cT3r5_75092e}`
 [Glory of the Garden ](#forensics-glory-of-the-garden) | Forensics | 50 | `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`
 
 ---
@@ -100,7 +103,7 @@ What is 0x3D (base 16) in decimal (base 10)?
 
 **Solution**
 
-Once again, we can use bash's bc function or python to do this conversion.
+Once again, you can use bash's bc function or python to do this conversion.
 
 ```console
 z3r0@disboard:~$ echo "obase=10; ibase=16; 3D" | bc
@@ -278,7 +281,7 @@ Since the title says 'Caesar', it's implied that this is a Caesar cipher. There 
 
 ![](picoctf/caesar.png)
 
-We can also write a simple python script to achieve the same goal and output all the possibilities using the following [script](picoctf/caesar.py):
+A simple python script can be used to achieve the same goal and output all the possibilities using the following [script](picoctf/caesar.py):
 ```python
 #!/usr/bin/python3
 import sys
@@ -308,6 +311,31 @@ Using shift 26: ynkooejcpdanqxeykjrbdofgkq
 **Flag**
 ```
 picoCTF{crossingtherubiconvfhsjkou}
+```
+
+[Back to Top](#overview)
+
+---
+
+## Cryptography: 13
+
+**Challenge**
+
+Cryptography can be easy, do you know what ROT13 is? cvpbPGS{abg_gbb_onq_bs_n_ceboyrz}
+
+**Solution**
+
+This challenge is basically an easier version of the [Caesar](#cryptography-caesar) challenge. Since ROT13 uses a standard key of 13, you can simply the problem even more. The bash tool `trace` can be used to make a static transformation like ROT13.
+```console
+z3r0@disboard:~$ echo cvpbPGS{abg_gbb_onq_bs_n_ceboyrz} | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+picoCTF{not_too_bad_of_a_problem}
+```
+
+What's happening here is that the `trace` command is mapping the original alphabet to a new alphabet that starts with 'n' and ends with 'm' wrapping around from 'z' to 'a'. When are the substitutions are completed, it outputs the transformation to the console.
+
+**Flag**
+```
+picoCTF{not_too_bad_of_a_problem}
 ```
 
 [Back to Top](#overview)
@@ -355,7 +383,7 @@ On entry to the portal, there is a single input field that takes a password - fi
 
 ![](picoctf/client-side.png)
 
-Opening the inspector, there's a verify function that receives the password string provided and compares it to pieces of the flag that are out of order - now all we need to do it put it back together. Putting the 8 parts together gives us the flag > `picoCTF{no_clients_plz_7723ce}`. 
+Opening the inspector, there's a verify function that receives the password string provided and compares it to pieces of the flag that are out of order - now all you need to do it put it back together. Putting the 8 parts together gives us the flag > `picoCTF{no_clients_plz_7723ce}`. 
 
 Enter the flag as the password and if you receive an alert that says 'Password Verified' then you're good to go!
 
@@ -376,7 +404,7 @@ Can you find the robots? https://jupiter.challenges.picoctf.org/problem/60915/ (
 
 **Solution**
 
-The title of the challenge asks 'where are the robots' implying that we might want to look at the robots.txt file on the website. A `robots.txt` file is a text file that is used to instruct web robots or web crawlers which parts of a website to not visit. This text file is part of the robots exclusion protocol (REP), a group of standards that regulate how robots crawl the web. 
+The title of the challenge asks 'where are the robots' implying that you might want to look at the robots.txt file on the website. A `robots.txt` file is a text file that is used to instruct web robots or web crawlers which parts of a website to not visit. This text file is part of the robots exclusion protocol (REP), a group of standards that regulate how robots crawl the web. 
 
 To view the robots.txt file, go to the following > https://jupiter.challenges.picoctf.org/problem/60915/robots.txt
 ```html
@@ -391,6 +419,45 @@ The owner doesn't want us to go to the 8028f.html page, so that's exactly what y
 **Flag**
 ```
 picoCTF{ca1cu1at1ng_Mach1n3s_8028f}
+```
+
+[Back to Top](#overview)
+
+---
+
+## Web Exploitation: Logon
+
+**Challenge**
+
+The factory is hiding things from all of its users. Can you login as logon and find what they've been looking at? https://jupiter.challenges.picoctf.org/problem/13594/ (link) or http://jupiter.challenges.picoctf.org:13594
+
+**Solution**
+
+Navigating to https://jupiter.challenges.picoctf.org/problem/13594/ shows a 'Factory Login' form that requires a username and password. Just clicking the 'Sign In' button with empty input will redirect you to the /flag page where it says in big letters 'No flag for you'.
+
+Looking at the source files doesn't really make anything stand out, but there are multiple cookies being stored on the webpage. Viewing the cookies on the webpage or the Application tab, you can find four cookies:
+1. admin: False
+2. password: ''
+3. session: ''
+4. ussername: ''
+
+![](picoctf/logon.png)
+
+The admin cookie with the value 'False' especially stands out. The next step is then to try to figure out how to change that value to 'True' to see if you can bypass the authentication. To change the cookie's value, do the following: 
+- Go to inspector
+- Click on the 'Application' tab 
+- Find the 'Cookies' option under the Storage section of the left navbar
+- Click on the cookie item for the current website
+- Double click on the value for the cookie 'admin'
+- Change to 'True'
+
+Changing the value and refreshing the page then reveals the flag!
+
+![](picoctf/logonflag.png)
+
+**Flag**
+```
+picoCTF{th3_c0nsp1r4cy_l1v3s_d1c24fef}
 ```
 
 [Back to Top](#overview)
@@ -426,6 +493,81 @@ Access granted.
 **Flag**
 ```
 picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}
+```
+
+[Back to Top](#overview)
+
+---
+
+## Reverse Engineering: Vault Door 1
+
+**Challenge**
+
+This vault uses some complicated arrays! I hope you can make sense of it, special agent. The source code for this vault is here: [VaultDoor1.java](picoctf/VaultDoor1.java)
+
+**Solution**
+
+Similar to the [training challenge](#reverse-engineering-vault-door-training), this one has you examing java code to retrieve a password. The java file has another vulnerable checker function that leaves the password easily decipherable. The function is as follows:
+```java
+public boolean checkPassword(String password) {
+    return password.length() == 32 &&
+           password.charAt(0)  == 'd' &&
+           password.charAt(29) == '9' &&
+           password.charAt(4)  == 'r' &&
+           password.charAt(2)  == '5' &&
+           password.charAt(23) == 'r' &&
+           password.charAt(3)  == 'c' &&
+           password.charAt(17) == '4' &&
+           password.charAt(1)  == '3' &&
+           password.charAt(7)  == 'b' &&
+           password.charAt(10) == '_' &&
+           password.charAt(5)  == '4' &&
+           password.charAt(9)  == '3' &&
+           password.charAt(11) == 't' &&
+           password.charAt(15) == 'c' &&
+           password.charAt(8)  == 'l' &&
+           password.charAt(12) == 'H' &&
+           password.charAt(20) == 'c' &&
+           password.charAt(14) == '_' &&
+           password.charAt(6)  == 'm' &&
+           password.charAt(24) == '5' &&
+           password.charAt(18) == 'r' &&
+           password.charAt(13) == '3' &&
+           password.charAt(19) == '4' &&
+           password.charAt(21) == 'T' &&
+           password.charAt(16) == 'H' &&
+           password.charAt(27) == '5' &&
+           password.charAt(30) == '2' &&
+           password.charAt(25) == '_' &&
+           password.charAt(22) == '3' &&
+           password.charAt(28) == '0' &&
+           password.charAt(26) == '7' &&
+           password.charAt(31) == 'e';
+}
+```
+
+Instead of deciphering it by hand which is definitely easy and possible, you can also write some code to do it for you:
+```python
+>>> import re
+>>> file = with open('VaultDoor1.java', 'r').read()
+>>> matches = re.findall(r'\d+\)\s+==\s+\'.', file)
+>>> matches = [(int(m.split(')')[0]),m.split('\'')[1]) for m in matches]
+>>> answer = ''.join(x[1] for x in sorted(matches))
+>>> answer
+'d35cr4mbl3_tH3_cH4r4cT3r5_75092e'
+```
+
+Although you don't need to completely understand this script to do the problem, the explanation is as follows: First, the `re` library is imported so that searching (findall function) can be done on regex to get specific phrases back - that is the index of the character in the password along with the character at that index. Second, change the returned phrases into simple tuples that can be sorted based on index. Lastly, join the characters of the sorted list back into an answer.
+
+*Note: The pattern used in the re.findall() function is ___\d+\)\s+==\s+\'.___ which can be really confusing at first glance. Look at the following to understand.*
+> \d+ looks for a digit that is at least one length, this is the index
+> \s+ looks for a sequence of spaces that is at least one length
+> == looks for the literal string '=='
+> . looks for any character, that is the character in the password
+
+**Flag**
+```
+picoCTF{d35cr4mbl3_tH3_cH4r4cT3r5_75092e}
 ```
 
 [Back to Top](#overview)
