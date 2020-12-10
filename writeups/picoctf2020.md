@@ -14,11 +14,16 @@ Title | Category | Points | Flag
 [Lets Warm Up ](#general-skills-lets-warm-up) | General Skills | 50 | `picoCTF{p}`
 [2Warm ](#general-skills-2warm) | General Skills | 50 | `picoCTF{101010}`
 [Warmed Up ](#general-skills-warmed-up) | General Skills | 50 | `picoCTF{61}`
-[The Numbers ](#cryptography-the-numbers) | Cryptography | 50 | `PICOCTF{THENUMBERSMASON}`
+[Bases ](#general-skills-bases) | General Skills | 100 | `picoCTF{l3arn_th3_r0p35}`
+[First Grep ](#general-skills-first-grep) | General Skills | 100 | `picoCTF{grep_is_good_to_find_things_f77e0797}`
+[The Numbers ](#cryptography-the-numbers) | Cryptography | 50 | `picoCTF{THENUMBERSMASON}`
+[Caesar ](#cryptography-caesar) | Cryptography | 100 | `picoCTF{crossingtherubiconvfhsjkou}`
 [Insp3ct0r ](#web-exploitation-insp3ct0r) | Web Exploitation | 50 | `picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}`
-[Dont Use Client Side ]($web-exploitation-dont-use-client-side) | Web Exploitation | 100 | `x`
+[Dont Use Client Side ](#web-exploitation-dont-use-client-side) | Web Exploitation | 100 | `picoCTF{no_clients_plz_7723ce}`
 [Vault Door Training ](#reverse-engineering-vault-door-training) | Reverse Engineering | 50 | `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`
 [Glory of the Garden ](#forensics-glory-of-the-garden) | Forensics | 50 | `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`
+
+---
 
 ## General Skills: Lets Warm Up
 
@@ -51,6 +56,8 @@ picoCTF{p}
 
 [Back to Top](#overview)
 
+---
+
 ## General Skills: 2Warm
 
 **Challenge**
@@ -80,6 +87,8 @@ picoCTF{101010}
 
 [Back to Top](#overview)
 
+---
+
 ## General Skills: Warmed Up
 
 **Challenge**
@@ -105,9 +114,67 @@ z3r0@disboard:~$ echo "obase=10; ibase=16; 3D" | bc
 picoCTF{61}
 ```
 
+---
+
+## General Skills: Bases
+
+**Challenge**
+
+What does this `bDNhcm5fdGgzX3IwcDM1` mean? I think it has something to do with bases.
+
+**Solution**
+
+Using the title as a hint, first thoughts go to a base64 encoded string. To decode it, you can use the `base64` bash tool along with the `echo command`
+
+```console
+z3r0@disboard:~$ echo bDNhcm5fdGgzX3IwcDM1 | base64 -d
+l3arn_th3_r0p35
+```
+
+Its also possible to do it in python, though an external package 'base64' needs to be imported to utilized the base64 decoder.
+
+```python
+>>> import base64
+>>> base64.b64decode('bDNhcm5fdGgzX3IwcDM1')
+'l3arn_th3_r0p35'
+```
+
+**Flag**
+```
+picoCTF{l3arn_th3_r0p35}
+```
+
 [Back to Top](#overview)
 
-## Cryptographhy: The Numbers
+---
+
+## General Skills: First Grep
+
+**Challenge**
+
+Can you find the flag in this `file`? This would be really tedious to look through manually, something tells me there is a better way.
+
+**Solution**
+
+Download linked file and rename it to something more accurate i.e. first-grep.txt
+
+This challenge requires using the bash tool `grep` which is a utility that searches any given input file and selects lines that match one or more patterns. The general command for grep looks like the following: `grep [pattern] [file ...]`
+
+```console
+z3r0@disboard:~$ grep pico first-grep.txt
+picoCTF{grep_is_good_to_find_things_f77e0797}
+```
+
+**Flag**
+```
+picoCTF{grep_is_good_to_find_things_f77e0797}
+```
+
+[Back to Top](#overview)
+
+---
+
+## Cryptography: The Numbers
 
 **Challenge**
 
@@ -130,12 +197,65 @@ PICOCTF{THENUMBERSMASON}
 
 **Flag**
 ```
-PICOCTF{THENUMBERSMASON}
+picoCTF{THENUMBERSMASON}
+```
+
+---
+
+## Cryptography: Caesar
+
+**Challenge**
+
+Decrypt this `message`.
+
+**Solution**
+
+The downloaded message looks like the following:
+```text
+picoCTF{ynkooejcpdanqxeykjrbdofgkq}
+```
+
+Since the title says 'Caesar', it's implied that this is a Caesar cipher. There are many available ways to decrypt a caesar message by hand or online such as at the website [CyberChef](https://gchq.github.io/CyberChef/). Using CyberChef, select the ROT13 (another name for Caesar cipher) recipe and paste the encoded part of the message into the 'Input' section.
+
+![](picoctf/caesar.png)
+
+We can also write a simple python script to achieve the same goal and output all the possibilities using the following [script](picoctf/caesar.py):
+```python
+#!/usr/bin/python3
+import sys
+message = input('Enter the string to be decrypted: ')
+for key in range(26):
+	result = ''
+	for c in message:
+		if c.isupper(): result += chr((ord(c) + key - 65) % 26 + 65)
+		elif c.islower(): result += chr((ord(c) + key - 97) % 26 + 97)
+		else: result += c 
+	print(f'Using shift {key}: {result}')
+```
+
+Running this code will produce the following:
+```console
+z3r0@disboard:~$ python3 caesar.py
+Enter the string to be decrypted: ynkooejcpdanqxeykjrbdofgkq
+Using shift 0: ynkooejcpdanqxeykjrbdofgkq
+...
+Using shift 3: bqnrrhmfsgdqtahbnmuegrijnt
+Using shift 4: crossingtherubiconvfhsjkou
+Using shift 5: dspttjohuifsvcjdpowgitklpv
+...
+Using shift 26: ynkooejcpdanqxeykjrbdofgkq
+```
+
+**Flag**
+```
+picoCTF{crossingtherubiconvfhsjkou}
 ```
 
 [Back to Top](#overview)
 
-## Web Exploitation: Insp3t0r
+---
+
+## Web Exploitation: Insp3ct0r
 
 **Challenge**
 
@@ -162,6 +282,8 @@ picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}
 
 [Back to Top](#overview)
 
+---
+
 ## Web Exploitation: Dont Use Client Side
 
 **Challenge**
@@ -170,18 +292,22 @@ Can you break into this super secure portal? https://jupiter.challenges.picoctf.
 
 **Solution**
 
-On entry to the portal, there is a single input field that takes a password - first thing first is to check the inspector for any interesting information
+On entry to the portal, there is a single input field that takes a password - first thing first is to check the inspector for any interesting information.
 
 ![](picoctf/client-side.png)
 
-Opening the inspector, there's a verify function that receives the password string provided and compares it to pieces of the flag that are out of order - now all we need to do it put it back together. Putting the 8 parts together gives us the flag > `picoCTF{no_clients_plz_7723ce}`. Enter the flag as the password and if you receive an alert that says 'Password Verified' then you're good to go!
+Opening the inspector, there's a verify function that receives the password string provided and compares it to pieces of the flag that are out of order - now all we need to do it put it back together. Putting the 8 parts together gives us the flag > `picoCTF{no_clients_plz_7723ce}`. 
+
+Enter the flag as the password and if you receive an alert that says 'Password Verified' then you're good to go!
 
 **Flag**
 ```
-picoCTF{C}
+picoCTF{no_clients_plz_7723ce}
 ```
 
 [Back to Top](#overview)
+
+---
 
 ## Reverse Engineering: Vault Door Training
 
@@ -197,7 +323,7 @@ public boolean checkPassword(String password) {
 	return password.equals("w4rm1ng_Up_w1tH_jAv4_be8d9806f18");
 }
 ```
-When the program takes the users input, it strips out the 'picoCTF{' and '}' sections, so the password for the vault would be `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`
+When the program takes the users input, it strips out the 'picoCTF{' and '}' sections, so the password for the vault would be `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`.
 
 On macOS, you can test it by doing the following:
 1. `javac VaultDoorTraining.java`
@@ -216,7 +342,9 @@ picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}
 
 [Back to Top](#overview)
 
-## Category: Problem 5
+---
+
+## Forensics: Glory of the Garden
 
 **Challenge**
 
@@ -226,13 +354,13 @@ This garden contains more than it seems.
 
 ![](picoctf/garden.jpg)
 
-This problem can be solved in multiple ways, two I'll demonstrate use the `strings` command and the `hexdump` command
+This problem can be solved in multiple ways, two I'll demonstrate use the `strings` command and the `hexdump` command.
 
 ```console
 z3r0@disboard:~$ strings garden.jpg | grep pico
 Here is a flag "picoCTF{more_than_m33ts_the_3y3eBdBd2cc}"
 ```
-The `strings` command finds printable strings in an object while the `grep` command searches for strings with the pattern 'pico', the '|' character is a pipe and gives the ouput of the first command to the input of the second command
+The `strings` command finds printable strings in an object while the `grep` command searches for strings with the pattern 'pico', the '|' character is a pipe and gives the ouput of the first command to the input of the second command.
 
 ```console
 z3r0@disboard:~$ hexdump -C garden.jpg
@@ -244,7 +372,7 @@ z3r0@disboard:~$ hexdump -C garden.jpg
 00230590  42 64 32 63 63 7d 22 0a                           |Bd2cc}".|
 ...
 ```
-You can also view the file as a hexdump with the `hexdump` command which is used to filter and display files in a human readable specified format
+You can also view the file as a hexdump with the `hexdump` command which is used to filter and display files in a human readable specified format.
 
 **Flag**
 ```
@@ -252,6 +380,8 @@ picoCTF{more_than_m33ts_the_3y3eBdBd2cc}
 ```
 
 [Back to Top](#overview)
+
+---
 
 ## Sample: Sample
 
@@ -270,6 +400,7 @@ picoCTF{C}
 
 [Back to Top](#overview)
 
+---
 
 ## File Type References
 
