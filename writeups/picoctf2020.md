@@ -16,10 +16,13 @@ Title | Category | Points | Flag
 [Warmed Up ](#general-skills-warmed-up) | General Skills | 50 | `picoCTF{61}`
 [Bases ](#general-skills-bases) | General Skills | 100 | `picoCTF{l3arn_th3_r0p35}`
 [First Grep ](#general-skills-first-grep) | General Skills | 100 | `picoCTF{grep_is_good_to_find_things_f77e0797}`
+[Strings It ](#general-skills-strings-it) | General Skills | 100 | `picoCTF{5tRIng5_1T_d66c7bb7}`
+[What's a Net Cat? ](#general-skills-whats-a-net-cat) | General Skills | 100 | `picoCTF{nEtCat_Mast3ry_d0c64587}`
 [The Numbers ](#cryptography-the-numbers) | Cryptography | 50 | `picoCTF{THENUMBERSMASON}`
 [Caesar ](#cryptography-caesar) | Cryptography | 100 | `picoCTF{crossingtherubiconvfhsjkou}`
 [Insp3ct0r ](#web-exploitation-insp3ct0r) | Web Exploitation | 50 | `picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}`
 [Dont Use Client Side ](#web-exploitation-dont-use-client-side) | Web Exploitation | 100 | `picoCTF{no_clients_plz_7723ce}`
+[Where are the Robots ](#web-exploitation-where-are-the-robots) | Web Exploitation | 100 | `picoCTF{ca1cu1at1ng_Mach1n3s_8028f}`
 [Vault Door Training ](#reverse-engineering-vault-door-training) | Reverse Engineering | 50 | `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`
 [Glory of the Garden ](#forensics-glory-of-the-garden) | Forensics | 50 | `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`
 
@@ -114,6 +117,8 @@ z3r0@disboard:~$ echo "obase=10; ibase=16; 3D" | bc
 picoCTF{61}
 ```
 
+[Back to Top](#overview)
+
 ---
 
 ## General Skills: Bases
@@ -174,6 +179,58 @@ picoCTF{grep_is_good_to_find_things_f77e0797}
 
 ---
 
+## General Skills: Strings It
+
+**Challenge**
+
+Can you find the flag in `file` without running it?
+
+**Solution**
+
+Download linked file > called 'strings'
+
+This challenge requires using the bash tool `strings` which is a utility that displays printable strings in a file. For this one, run the tool on the 'strings' file and then grep for the flag.
+
+```console
+z3r0@disboard:~$ strings strings | grep pico
+picoCTF{5tRIng5_1T_d66c7bb7}
+```
+
+**Flag**
+```
+picoCTF{5tRIng5_1T_d66c7bb7}
+```
+
+[Back to Top](#overview)
+
+---
+
+## General Skills: Whats a Net Cat
+
+**Challenge**
+
+Using netcat (nc) is going to be pretty important. Can you connect to jupiter.challenges.picoctf.org at port 25103 to get the flag?
+
+**Solution**
+
+This challenge is as simple as using the `netcat` tool to connect to the listener at the host jupiter.challenges.picoctf.org on port 25103. To actually run the netcat program, the general format is as follows: `nc [hostname] [port]`
+
+```console
+z3r0@disboard:~$ nc -v jupiter.challenges.picoctf.org 25103
+Connection to jupiter.challenges.picoctf.org port 25103 [tcp/*] succeeded!
+You're on your way to becoming the net cat master
+picoCTF{nEtCat_Mast3ry_d0c64587}
+```
+
+**Flag**
+```
+picoCTF{nEtCat_Mast3ry_d0c64587}
+```
+
+[Back to Top](#overview)
+
+---
+
 ## Cryptography: The Numbers
 
 **Challenge**
@@ -199,6 +256,8 @@ PICOCTF{THENUMBERSMASON}
 ```
 picoCTF{THENUMBERSMASON}
 ```
+
+[Back to Top](#overview)
 
 ---
 
@@ -303,6 +362,35 @@ Enter the flag as the password and if you receive an alert that says 'Password V
 **Flag**
 ```
 picoCTF{no_clients_plz_7723ce}
+```
+
+[Back to Top](#overview)
+
+---
+
+## Web Exploitation: Where are the Robots
+
+**Challenge**
+
+Can you find the robots? https://jupiter.challenges.picoctf.org/problem/60915/ (link) or http://jupiter.challenges.picoctf.org:60915
+
+**Solution**
+
+The title of the challenge asks 'where are the robots' implying that we might want to look at the robots.txt file on the website. A `robots.txt` file is a text file that is used to instruct web robots or web crawlers which parts of a website to not visit. This text file is part of the robots exclusion protocol (REP), a group of standards that regulate how robots crawl the web. 
+
+To view the robots.txt file, go to the following > https://jupiter.challenges.picoctf.org/problem/60915/robots.txt
+```html
+User-agent: *
+Disallow: /8028f.html
+```
+
+The owner doesn't want us to go to the 8028f.html page, so that's exactly what you need to do. Enter the following url to get the flag > https://jupiter.challenges.picoctf.org/problem/60915/8028f.html
+
+![](robots.png)
+
+**Flag**
+```
+picoCTF{ca1cu1at1ng_Mach1n3s_8028f}
 ```
 
 [Back to Top](#overview)
