@@ -11,13 +11,45 @@ The following are questions that can be found on the new picoGym challenges page
 
 Title | Category | Points | Flag
 ------|----------|--------|-----
+[Lets Warm Up ](#general-skills-lets-warm-up) | General Skills | 50 | `picoCTF{p}`
 [2Warm ](#general-skills-2warm) | General Skills | 50 | `picoCTF{101010}`
 [Warmed Up ](#general-skills-warmed-up) | General Skills | 50 | `picoCTF{61}`
 [The Numbers ](#cryptography-the-numbers) | Cryptography | 50 | `PICOCTF{THENUMBERSMASON}`
 [Insp3ct0r ](#web-exploitation-insp3ct0r) | Web Exploitation | 50 | `picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}`
+[Dont Use Client Side ]($web-exploitation-dont-use-client-side) | Web Exploitation | 100 | `x`
 [Vault Door Training ](#reverse-engineering-vault-door-training) | Reverse Engineering | 50 | `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`
 [Glory of the Garden ](#forensics-glory-of-the-garden) | Forensics | 50 | `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`
 
+## General Skills: Lets Warm Up
+
+**Challenge**
+
+If I told you a word started with 0x70 in hexadecimal, what would it start with in ASCII?
+
+**Solution**
+
+This is really easy to do in bash as the command `echo` has the ability to interpret backslashes, you can also use a tool like `xxd` to make a hexdump or reverse it with the -r option.
+
+```console
+z3r0@disboard:~$ echo -e '\x70'
+p
+z3r0@disboard:~$ echo '0x70' | xxd -r
+p%
+```
+
+It can also be done in python using the 'decode' command and passing in the type argument as 'hex'.
+
+```python
+>>> '70'.decode('hex')
+p
+```
+
+**Flag**
+```
+picoCTF{p}
+```
+
+[Back to Top](#overview)
 
 ## General Skills: 2Warm
 
@@ -27,12 +59,14 @@ Can you convert the number 42 (base 10) to binary (base 2)?
 
 **Solution**
 
-Can convert by hand, but to simplify process for any n, use bash or python
+This can be easily converted by hand but the process can be simplified for any n using bash or python. In bash, you can utilize the `bc` command tool which takes a string as input to calculate arbitrary precision numbers.
 
 ```console
 z3r0@disboard:~$ echo "obase=2; 42 | bc"
 101010
 ```
+
+In python, there is a built-in command called 'bin' that will return a binary string starting with '0b'.
 
 ```python
 >>> bin(42)[2:]
@@ -44,6 +78,8 @@ z3r0@disboard:~$ echo "obase=2; 42 | bc"
 picoCTF{101010}
 ```
 
+[Back to Top](#overview)
+
 ## General Skills: Warmed Up
 
 **Challenge**
@@ -52,7 +88,7 @@ What is 0x3D (base 16) in decimal (base 10)?
 
 **Solution**
 
-Once again, we can use bash's bc function or python to do this conversion
+Once again, we can use bash's bc function or python to do this conversion.
 
 ```console
 z3r0@disboard:~$ echo "obase=10; ibase=16; 3D" | bc
@@ -68,6 +104,8 @@ z3r0@disboard:~$ echo "obase=10; ibase=16; 3D" | bc
 ```
 picoCTF{61}
 ```
+
+[Back to Top](#overview)
 
 ## Cryptographhy: The Numbers
 
@@ -95,6 +133,8 @@ PICOCTF{THENUMBERSMASON}
 PICOCTF{THENUMBERSMASON}
 ```
 
+[Back to Top](#overview)
+
 ## Web Exploitation: Insp3t0r
 
 **Challenge**
@@ -103,11 +143,12 @@ Kishor Balan tipped us off that the following code may need inspection: https://
 
 **Solution**
 
-Navigating to the given link, you're greeted with a simple html page that says 'Inspect Me' - on Chrome you can open the inspector by either using the shortcut 'Option+Command+J' or by right clicking and then clicking the 'Inspect' option - the inspector shows as follows:
+Navigating to the given link, you're greeted with a simple html page that says 'Inspect Me'. On Chrome, you can open the inspector by either using the shortcut 'Option+Command+J' or by right clicking and then clicking the 'Inspect' option. Opening the inspector shows the following:
 
 ![](picoctf/insp3ct0r.png)
 
 The first part of the flag is given in the HTML file > `picoCTF{tru3_d3`
+
 Navigating to the 'Sources' tab, you can view the js and css to get the next part of the flags:
 - mycss.css > `t3ct1ve_0r_ju5t`
 - myjs.js > `_lucky?f10be399}`
@@ -118,6 +159,29 @@ Putting it all together makes `picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}`
 ```
 picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}
 ```
+
+[Back to Top](#overview)
+
+## Web Exploitation: Dont Use Client Side
+
+**Challenge**
+
+Can you break into this super secure portal? https://jupiter.challenges.picoctf.org/problem/29835/ (link) or http://jupiter.challenges.picoctf.org:29835
+
+**Solution**
+
+On entry to the portal, there is a single input field that takes a password - first thing first is to check the inspector for any interesting information
+
+![](picoctf/client-side.png)
+
+Opening the inspector, there's a verify function that receives the password string provided and compares it to pieces of the flag that are out of order - now all we need to do it put it back together. Putting the 8 parts together gives us the flag > `picoCTF{no_clients_plz_7723ce}`. Enter the flag as the password and if you receive an alert that says 'Password Verified' then you're good to go!
+
+**Flag**
+```
+picoCTF{C}
+```
+
+[Back to Top](#overview)
 
 ## Reverse Engineering: Vault Door Training
 
@@ -149,6 +213,8 @@ Access granted.
 ```
 picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}
 ```
+
+[Back to Top](#overview)
 
 ## Category: Problem 5
 
@@ -185,6 +251,8 @@ You can also view the file as a hexdump with the `hexdump` command which is used
 picoCTF{more_than_m33ts_the_3y3eBdBd2cc}
 ```
 
+[Back to Top](#overview)
+
 ## Sample: Sample
 
 **Challenge**
@@ -199,6 +267,8 @@ B
 ```
 picoCTF{C}
 ```
+
+[Back to Top](#overview)
 
 
 ## File Type References
