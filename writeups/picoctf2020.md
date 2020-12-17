@@ -1,10 +1,15 @@
-# PicoCTF - PicoGym Challenges
+# - PicoCTF - 
+# PicoGym Challenges
+
+---
 
 PicoCTF is a free computer security game with original educational content built on a capture-the-flag framework created by security and privacy experts at Carnegie Mellon University. The competition has participants reverse engineer, break, hack, decrypt, and think creatively and critically to solve the challenges and capture the flags.
 
 The following are questions that can be found on the new picoGym challenges page. They include solutions for the picoCTF 2019 competition and picoCTF 2020 mini competition.
 
 ![](picoctf/picoctf.png)
+
+---
 
 ## Overview
 
@@ -21,6 +26,7 @@ Title | Category | Points | Flag
 [The Numbers ](#cryptography-the-numbers) | Cryptography | 50 | `picoCTF{THENUMBERSMASON}`
 [Caesar ](#cryptography-caesar) | Cryptography | 100 | `picoCTF{crossingtherubiconvfhsjkou}`
 [13 ](#cryptography-13) | Cryptography | 100 | `picoCTF{not_too_bad_of_a_problem}`
+[Easy1 ](#cryptography-easy1) | Cryptography | 100 | `picoCTF{CRYPTOISFUN}`
 [Insp3ct0r ](#web-exploitation-insp3ct0r) | Web Exploitation | 50 | `picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?f10be399}`
 [Dont Use Client Side ](#web-exploitation-dont-use-client-side) | Web Exploitation | 100 | `picoCTF{no_clients_plz_7723ce}`
 [Where are the Robots ](#web-exploitation-where-are-the-robots) | Web Exploitation | 100 | `picoCTF{ca1cu1at1ng_Mach1n3s_8028f}`
@@ -28,6 +34,7 @@ Title | Category | Points | Flag
 [Vault Door Training ](#reverse-engineering-vault-door-training) | Reverse Engineering | 50 | `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`
 [Vault Door 1 ](#reverse-engineering-vault-door-1) | Reverse Engineering | 100 | `picoCTF{d35cr4mbl3_tH3_cH4r4cT3r5_75092e}`
 [Glory of the Garden ](#forensics-glory-of-the-garden) | Forensics | 50 | `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`
+[So Meta ](#forensics-so-meta) | Forensics | 150 | ``
 
 ---
 
@@ -72,7 +79,7 @@ Can you convert the number 42 (base 10) to binary (base 2)?
 
 **Solution**
 
-This can be easily converted by hand but the process can be simplified for any n using bash or python. In bash, you can utilize the `bc` command tool which takes a string as input to calculate arbitrary precision numbers.
+This can be converted by hand but the process can be simplified for any n using bash or python. In bash, you can utilize the `bc` command tool which takes a string as input to calculate arbitrary precision numbers.
 
 ```console
 z3r0@disboard:~$ echo "obase=2; 42 | bc"
@@ -110,6 +117,8 @@ z3r0@disboard:~$ echo "obase=10; ibase=16; 3D" | bc
 61
 ```
 
+In the command above, the 'obase' field stands for the output base and the 'ibase' field stands for the input base.
+
 ```python
 >>> int('3d', 16)
 61
@@ -128,18 +137,18 @@ picoCTF{61}
 
 **Challenge**
 
-What does this `bDNhcm5fdGgzX3IwcDM1` mean? I think it has something to do with bases.
+What does this ___bDNhcm5fdGgzX3IwcDM1___ mean? I think it has something to do with bases.
 
 **Solution**
 
-Using the title as a hint, first thoughts go to a base64 encoded string. To decode it, you can use the `base64` bash tool along with the `echo command`
+Using the title as a hint, first thoughts go to a base64 encoded string. To decode it, you can use the `base64` bash tool along with the `echo` command
 
 ```console
 z3r0@disboard:~$ echo bDNhcm5fdGgzX3IwcDM1 | base64 -d
 l3arn_th3_r0p35
 ```
 
-Its also possible to do it in python, though an external package 'base64' needs to be imported to utilized the base64 decoder.
+It's also possible to do it in python, though an external package 'base64' needs to be imported to utilize the base64 decoder.
 
 ```python
 >>> import base64
@@ -160,7 +169,7 @@ picoCTF{l3arn_th3_r0p35}
 
 **Challenge**
 
-Can you find the flag in this `file`? This would be really tedious to look through manually, something tells me there is a better way.
+Can you find the flag in this [file](first-grep.txt)? This would be really tedious to look through manually, something tells me there is a better way.
 
 **Solution**
 
@@ -186,7 +195,7 @@ picoCTF{grep_is_good_to_find_things_f77e0797}
 
 **Challenge**
 
-Can you find the flag in `file` without running it?
+Can you find the flag in [file](picoctf/strings) without running it?
 
 **Solution**
 
@@ -246,7 +255,8 @@ The numbers... what do they mean?
 ![](picoctf/the_numbers.png)
 
 String of numbers > 16 9 3 15 3 20 6 { 20 8 5 14 21 13 2 5 18 19 13 1 19 15 14 }
-The numbers correspond with the order of the alphabet i.e. 1=A, 2=B, etc.
+
+The numbers correspond with the order of the alphabet i.e. 1=A, 2=B, 3=C, etc.
 
 ```python
 >>> nums = '16 9 3 15 3 20 6 { 20 8 5 14 21 13 2 5 18 19 13 1 19 15 14 }'.split()
@@ -268,7 +278,7 @@ picoCTF{THENUMBERSMASON}
 
 **Challenge**
 
-Decrypt this `message`.
+Decrypt this [message](picoctf/caesar-message.txt).
 
 **Solution**
 
@@ -325,7 +335,7 @@ Cryptography can be easy, do you know what ROT13 is? cvpbPGS{abg_gbb_onq_bs_n_ce
 
 **Solution**
 
-This challenge is basically an easier version of the [Caesar](#cryptography-caesar) challenge. Since ROT13 uses a standard key of 13, you can simply the problem even more. The bash tool `trace` can be used to make a static transformation like ROT13.
+This challenge is basically an easier version of the [Caesar](#cryptography-caesar) challenge. Since ROT13 uses a standard key of 13, you can simplify the problem even more. The bash tool `trace` can be used to make a static transformation like ROT13.
 ```console
 z3r0@disboard:~$ echo cvpbPGS{abg_gbb_onq_bs_n_ceboyrz} | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 picoCTF{not_too_bad_of_a_problem}
@@ -336,6 +346,59 @@ What's happening here is that the `trace` command is mapping the original alphab
 **Flag**
 ```
 picoCTF{not_too_bad_of_a_problem}
+```
+
+[Back to Top](#overview)
+
+---
+
+## Cryptography: Easy1
+
+**Challenge**
+
+The one time pad can be cryptographically secure, but not when you know the key. Can you solve this? We've given you the encrypted flag, key, and a table to help ___UFJKXQZQUNB___ with the key of ___SOLVECRYPTO___. Can you use this table to solve it?.
+
+**Solution**
+
+Below is the table that is given in the question.
+```text
+    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+   +----------------------------------------------------
+A | A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B | B C D E F G H I J K L M N O P Q R S T U V W X Y Z A
+C | C D E F G H I J K L M N O P Q R S T U V W X Y Z A B
+D | D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+E | E F G H I J K L M N O P Q R S T U V W X Y Z A B C D
+F | F G H I J K L M N O P Q R S T U V W X Y Z A B C D E
+G | G H I J K L M N O P Q R S T U V W X Y Z A B C D E F
+H | H I J K L M N O P Q R S T U V W X Y Z A B C D E F G
+I | I J K L M N O P Q R S T U V W X Y Z A B C D E F G H
+J | J K L M N O P Q R S T U V W X Y Z A B C D E F G H I
+K | K L M N O P Q R S T U V W X Y Z A B C D E F G H I J
+L | L M N O P Q R S T U V W X Y Z A B C D E F G H I J K
+M | M N O P Q R S T U V W X Y Z A B C D E F G H I J K L
+N | N O P Q R S T U V W X Y Z A B C D E F G H I J K L M
+O | O P Q R S T U V W X Y Z A B C D E F G H I J K L M N
+P | P Q R S T U V W X Y Z A B C D E F G H I J K L M N O
+Q | Q R S T U V W X Y Z A B C D E F G H I J K L M N O P
+R | R S T U V W X Y Z A B C D E F G H I J K L M N O P Q
+S | S T U V W X Y Z A B C D E F G H I J K L M N O P Q R
+T | T U V W X Y Z A B C D E F G H I J K L M N O P Q R S
+U | U V W X Y Z A B C D E F G H I J K L M N O P Q R S T
+V | V W X Y Z A B C D E F G H I J K L M N O P Q R S T U
+W | W X Y Z A B C D E F G H I J K L M N O P Q R S T U V
+X | X Y Z A B C D E F G H I J K L M N O P Q R S T U V W
+Y | Y Z A B C D E F G H I J K L M N O P Q R S T U V W X
+Z | Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
+```
+
+This table is commonly used in the Vigenere method. The 'Vigenere' cipher employs a form of polyalphabetic substitution and a key to encrypt phrases. Using the key ___SOLVECRYPTO___, we can decode the encrypted message ___UFJKXQZQUNB___ by finding the intersection of the respective letters. If we reached the end of the key, it would repeat at the beginning until the full message is decoded. In this question, both strings are 11 characters making it a one-to-one relationship. Decoding letter by letter, the decrypted message is `CRYPTOISFUN`.
+
+Another simple way to do this is to use an online [Vigenere Decoder](https://gchq.github.io/CyberChef/#recipe=Vigen%C3%A8re_Decode('')) and provide both the key and message.
+
+**Flag**
+```
+picoCTF{CRYPTOISFUN}
 ```
 
 [Back to Top](#overview)
@@ -546,7 +609,7 @@ public boolean checkPassword(String password) {
 }
 ```
 
-Instead of deciphering it by hand which is definitely easy and possible, you can also write some code to do it for you:
+Instead of deciphering it by hand which is very doable yet tedious, you can also write some code to do it for you:
 ```python
 >>> import re
 >>> file = with open('VaultDoor1.java', 'r').read()
@@ -607,6 +670,38 @@ You can also view the file as a hexdump with the `hexdump` command which is used
 **Flag**
 ```
 picoCTF{more_than_m33ts_the_3y3eBdBd2cc}
+```
+
+[Back to Top](#overview)
+
+---
+
+## Forensics: So Meta
+
+**Challenge**
+
+Find the flag in this [picture](pico_img.png).
+
+**Solution**
+
+![](picoctf/pico_img.png)
+
+This name of this problem hints at looking at metadata. In images, metadata is a set of information describing information about rights and administration of an image. It allows information to be embedded into an images data to be understood by both software and human users.
+
+This challenge can be completed using both command line tools or online tools which view the embedded data in a file. The first method is using the tool [`exiftool`](https://exiftool.org/) which is a platform-independent perl library that allows for modifying meta information in files.
+
+```console
+z3r0@disboard:~$ exiftool pico_img.png
+...
+Artist: picoCTF{s0_m3ta_eb36bf44}
+...
+```
+
+There are also a multitude of online sources for viewing exif data or metadata such as [Jeffrey's Image Metadata Viewer](http://exif.regex.info/exif.cgi) or [Online Exif Viewer](http://exif-viewer.com/)
+
+**Flag**
+```
+picoCTF{s0_m3ta_eb36bf44}
 ```
 
 [Back to Top](#overview)
