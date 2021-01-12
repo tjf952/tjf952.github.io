@@ -34,7 +34,7 @@ Title | Category | Points | Flag
 [Vault Door Training ](#reverse-engineering-vault-door-training) | Reverse Engineering | 50 | `picoCTF{w4rm1ng_Up_w1tH_jAv4_be8d9806f18}`
 [Vault Door 1 ](#reverse-engineering-vault-door-1) | Reverse Engineering | 100 | `picoCTF{d35cr4mbl3_tH3_cH4r4cT3r5_75092e}`
 [Glory of the Garden ](#forensics-glory-of-the-garden) | Forensics | 50 | `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`
-[So Meta ](#forensics-so-meta) | Forensics | 150 | ``
+[So Meta ](#forensics-so-meta) | Forensics | 150 | `picoCTF{s0_m3ta_eb36bf44}`
 
 ---
 
